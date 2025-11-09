@@ -1,0 +1,419 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0');
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #7eb81b;
+  --ifm-color-primary-dark: #6da116;
+  --ifm-color-primary-darker: #5d8c13;
+  --ifm-color-primary-darkest: #3a550b;
+  --ifm-color-primary-light: #8ccc2c;
+  --ifm-color-primary-lighter: #99d641;
+  --ifm-color-primary-lightest: #b5e574;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-footer-background-color: var(--ifm-navbar-background-color);
+  --ifm-footer-color: #1b1f28;
+  --ifm-footer-title-color: #1b1f28;
+  --ifm-footer-link-color: #1b1f28;
+  --ifm-footer-link-hover-color: #5d8c13;
+  --mesh-alert-radius: 6px;
+  --mesh-alert-text-color: #1a1c1f;
+  --mesh-alert-neutral-bg: #ffffff;
+  --mesh-alert-neutral-border: rgba(19, 23, 32, 0.12);
+  --mesh-alert-neutral-icon: #cdd5e0;
+  --mesh-alert-tip-bg: #fffef9;
+  --mesh-alert-tip-border: #f0d976;
+  --mesh-alert-tip-icon: #c59a1a;
+  --mesh-alert-info-bg: #f5f7ff;
+  --mesh-alert-info-border: #c5d1ff;
+  --mesh-alert-info-icon: #5d7bff;
+  --mesh-alert-success-bg: #f4fbf5;
+  --mesh-alert-success-border: #cdeed5;
+  --mesh-alert-success-icon: #43b169;
+  --mesh-alert-warning-bg: #fff7f6;
+  --mesh-alert-warning-border: #ffd0c8;
+  --mesh-alert-warning-icon: #de5b48;
+  --mesh-alert-note-bg: #f7f9fd;
+  --mesh-alert-note-border: #d7e0f3;
+  --mesh-alert-note-icon: #7a8acd;
+  --mesh-alert-favorite-bg: rgba(255, 247, 227, 0.5);
+  --mesh-alert-favorite-border: rgba(246, 213, 150, 0.35);
+  --mesh-alert-favorite-icon: #d08e1f;
+  --docsearch-primary-color: var(--ifm-color-primary);
+  --docsearch-text-color: var(--ifm-font-color-base);
+  --docsearch-hit-color: var(--ifm-font-color-base);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #7eb81b;
+  --ifm-color-primary-dark: #6da116;
+  --ifm-color-primary-darker: #5d8c13;
+  --ifm-color-primary-darkest: #3a550b;
+  --ifm-color-primary-light: #8ccc2c;
+  --ifm-color-primary-lighter: #99d641;
+  --ifm-color-primary-lightest: #b5e574;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.08);
+  --ifm-navbar-background-color: #242526;
+  --ifm-footer-background-color: var(--ifm-navbar-background-color);
+  --ifm-footer-color: #ffffff;
+  --ifm-footer-title-color: #ffffff;
+  --ifm-footer-link-color: #ffffff;
+  --ifm-footer-link-hover-color: #ffffff;
+  --mesh-alert-text-color: #f7faff;
+  --mesh-alert-neutral-bg: #1d202a;
+  --mesh-alert-neutral-border: rgba(255, 255, 255, 0.08);
+  --mesh-alert-neutral-icon: #4c5870;
+  --mesh-alert-tip-bg: #242012;
+  --mesh-alert-tip-border: #5a4c1f;
+  --mesh-alert-tip-icon: #f4d360;
+  --mesh-alert-info-bg: #1a2536;
+  --mesh-alert-info-border: #2c3860;
+  --mesh-alert-info-icon: #7ea2ff;
+  --mesh-alert-success-bg: #13241a;
+  --mesh-alert-success-border: #1f3d2a;
+  --mesh-alert-success-icon: #74e2a2;
+  --mesh-alert-warning-bg: #2e1718;
+  --mesh-alert-warning-border: #4a2528;
+  --mesh-alert-warning-icon: #ff978b;
+  --mesh-alert-note-bg: #171e2d;
+  --mesh-alert-note-border: #2a3249;
+  --mesh-alert-note-icon: #94a5ff;
+  --mesh-alert-favorite-bg: #2a2115;
+  --mesh-alert-favorite-border: #4a351f;
+  --mesh-alert-favorite-icon: #ffd782;
+  --docsearch-primary-color: var(--ifm-color-primary);
+  --docsearch-text-color: var(--ifm-font-color-base);
+}
+
+.footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  text-align: center;
+  background: #ffffff;
+  color: var(--ifm-footer-color);
+}
+
+[data-theme='dark'] .footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #242526;
+}
+
+.footer__links-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer__links-row a {
+  color: var(--ifm-footer-link-color);
+  font-weight: 500;
+}
+
+.footer__links-row a:hover {
+  color: var(--ifm-footer-link-hover-color);
+}
+
+[data-theme='light'] .footer.footer--dark,
+[data-theme='light'] .footer.footer--dark .footer__links-row a,
+[data-theme='light'] .footer.footer--dark .footer__copyright,
+[data-theme='light'] .footer.footer--dark .footer__trademark {
+  color: #1b1f28 !important;
+}
+
+[data-theme='light'] .footer.footer--dark .footer__links-row a:hover {
+  color: #5d8c13 !important;
+}
+
+[data-theme='dark'] .footer.footer--dark,
+[data-theme='dark'] .footer.footer--dark .footer__links-row a,
+[data-theme='dark'] .footer.footer--dark .footer__copyright,
+[data-theme='dark'] .footer.footer--dark .footer__trademark {
+  color: #ffffff !important;
+}
+
+[data-theme='dark'] .footer.footer--dark .footer__links-row a:hover {
+  color: #ffffff !important;
+}
+
+.footer__trademark {
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+}
+
+[data-theme='light'] .footer__trademark {
+  color: #4d504f;
+  opacity: 0.85;
+}
+
+[data-theme='dark'] .footer__trademark {
+  color: #d8f3c0;
+  opacity: 0.9;
+}
+
+.alert {
+  --mesh-alert-bg-current: var(--mesh-alert-neutral-bg);
+  --mesh-alert-border-current: var(--mesh-alert-neutral-border);
+  --mesh-alert-icon-current: var(--mesh-alert-neutral-icon);
+  display: flex;
+  column-gap: 0.55rem;
+  align-items: flex-start;
+  border-radius: var(--mesh-alert-radius);
+  padding: 0.68rem 0.85rem;
+  margin: 0.65rem 0;
+  line-height: 1.4;
+  background: var(--mesh-alert-bg-current);
+  border: 1px solid var(--mesh-alert-border-current);
+  border-left: 3px solid color-mix(in srgb, var(--mesh-alert-icon-current) 50%, transparent);
+  color: var(--mesh-alert-text-color);
+  box-shadow: none;
+}
+
+.alert::before {
+  content: '';
+  font-family: 'Material Symbols Rounded';
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--mesh-alert-icon-current);
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-style: normal;
+  margin-top: 0.32rem;
+}
+
+.alert [class*='admonitionContent'] {
+  flex: 1;
+}
+
+.alert__icon,
+.alert__heading,
+.theme-admonition__icon,
+.theme-admonition__heading,
+[class^='admonitionIcon'],
+[class*='admonitionIcon'],
+[class^='admonitionHeading'],
+[class*='admonitionHeading'] {
+  display: none !important;
+}
+
+.alert--tip {
+  --mesh-alert-bg-current: var(--mesh-alert-tip-bg);
+  --mesh-alert-border-current: var(--mesh-alert-tip-border);
+  --mesh-alert-icon-current: var(--mesh-alert-tip-icon);
+}
+
+.alert--info {
+  --mesh-alert-bg-current: var(--mesh-alert-info-bg);
+  --mesh-alert-border-current: var(--mesh-alert-info-border);
+  --mesh-alert-icon-current: var(--mesh-alert-info-icon);
+}
+
+.alert--success {
+  --mesh-alert-bg-current: var(--mesh-alert-success-bg);
+  --mesh-alert-border-current: var(--mesh-alert-success-border);
+  --mesh-alert-icon-current: var(--mesh-alert-success-icon);
+}
+
+.alert--warning,
+.alert--danger {
+  --mesh-alert-bg-current: var(--mesh-alert-warning-bg);
+  --mesh-alert-border-current: var(--mesh-alert-warning-border);
+  --mesh-alert-icon-current: var(--mesh-alert-warning-icon);
+}
+
+.alert--note {
+  --mesh-alert-bg-current: var(--mesh-alert-note-bg);
+  --mesh-alert-border-current: var(--mesh-alert-note-border);
+  --mesh-alert-icon-current: var(--mesh-alert-note-icon);
+}
+
+.alert--favorite {
+  --mesh-alert-bg-current: var(--mesh-alert-favorite-bg);
+  --mesh-alert-border-current: var(--mesh-alert-favorite-border);
+  --mesh-alert-icon-current: var(--mesh-alert-favorite-icon);
+}
+
+.DocSearch-Button-Placeholder {
+  position: relative;
+  color: transparent;
+  font-weight: 500;
+}
+
+.DocSearch-Button-Placeholder::after {
+  content: 'Поиск';
+  position: absolute;
+  inset: 0;
+  color: currentColor;
+}
+
+
+.navbar-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.1rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Иконки без текста (Telegram/YouTube) */
+/* icon-only styles removed: use default theme styles */
+
+[class*='navbar__items--right'] {}
+
+[class*='navbar__items--right'] .toggleButton_gllP {}
+
+[data-theme='light'] .navbar-icon {
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme='light'] [class*='navbar__items--right'] .toggleButton_gllP {}
+
+[class*='navbar__items--right'] [class*='navbarSearchContainer'] {}
+[class*='navbar__items--right'] [class*='navbarSearchContainer'] .DocSearch-Button {}
+
+/* default spacing for theme toggle */
+[class*='navbar__items--right'] .toggle_vylO,
+[class*='navbar__items--right'] .colorModeToggle_DEke {}
+
+/* search: default positioning */
+.navbar .navbar__inner {}
+[class*='navbarSearchContainer'] {}
+[class*='navbarSearchContainer'] .navbar__search {}
+[class*='navbarSearchContainer'] .navbar__search-input {}
+[class*='navbarSearchContainer'] .navbar__search::after {}
+/* скрываем оригинальные чипы, чтобы не дублировались */
+.searchHintContainer_Pkmr, kbd.searchHint_iIMx, .navbar kbd { display: none !important; }
+/* Hotkey chips держим внутри самой кнопки */
+[class*='navbarSearchContainer'] .DocSearch-Button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding-right: 2.2rem; /* место под chips */
+}
+[class*='navbarSearchContainer'] .DocSearch-Button-Keys {
+  position: absolute;
+  right: .45rem;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 !important;
+}
+@media (max-width: 996px) {
+  [class*='navbarSearchContainer'] {
+    position: static;
+    transform: none;
+    width: auto;
+  }
+}
+
+.navbar-icon::before {
+  font-family: 'Material Symbols Rounded';
+  font-size: 1.2rem;
+  line-height: 1;
+  color: currentColor;
+}
+
+.navbar-icon svg,
+.navbar-icon [class*='iconExternalLink'] {
+  display: none !important;
+}
+
+.navbar-icon--telegram::before {
+  content: 'send';
+}
+
+.navbar-icon--youtube::before {
+  content: 'smart_display';
+}
+
+.alert p {
+  margin: 0.15rem 0;
+}
+
+.alert p + p {
+  margin-top: 0.2rem;
+}
+
+.alert--tip::before {
+  content: 'lightbulb';
+}
+
+.alert--info::before {
+  content: 'info';
+}
+
+.alert--success::before {
+  content: 'task_alt';
+}
+
+.alert--warning::before,
+.alert--danger::before {
+  content: 'warning';
+}
+
+.alert--note::before {
+  content: 'description';
+}
+
+.alert--favorite::before {
+  content: 'grade';
+  color: #c17300;
+}
+
+[data-theme='dark'] .alert--favorite::before {
+  color: #ffd764;
+}
+
+.menu__link[href='/'],
+.menu__link[href='/devices'],
+.menu__link[href='/devices/ready-made'],
+.menu__link[href='/devices/diy'],
+.menu__link[href='/antennas'],
+.menu__link[href='/node-setup'],
+.menu__link[href='/troubleshooting'],
+.menu__link[href='/community'],
+.menu__link[href='/regulations'] {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.menu__link[href='/']::before,
+.menu__link[href='/devices']::before,
+.menu__link[href='/devices/ready-made']::before,
+.menu__link[href='/devices/diy']::before,
+.menu__link[href='/antennas']::before,
+.menu__link[href='/node-setup']::before,
+.menu__link[href='/troubleshooting']::before,
+.menu__link[href='/community']::before,
+.menu__link[href='/regulations']::before {
+  font-family: 'Material Symbols Rounded';
+  font-size: 1.2rem;
+  line-height: 1;
+  position: absolute;
+  left: 0.5rem;
+  color: var(--ifm-color-primary);
+  text-transform: none;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-feature-settings: 'liga';
+  font-style: normal;
+  speak: none;
+}
+
+.menu__link[href='/']::before { content: 'rocket_launch'; }
+.menu__link[href='/devices']::before { content: 'build'; }
+.menu__link[href='/devices/ready-made']::before { content: 'storefront'; }
+.menu__link[href='/devices/diy']::before { content: 'handyman'; }
+.menu__link[href='/antennas']::before { content: 'sensors'; }
+.menu__link[href='/node-setup']::before { content: 'tune'; }
+.menu__link[href='/troubleshooting']::before { content: 'support_agent'; }
+.menu__link[href='/community']::before { content: 'groups'; }
+.menu__link[href='/regulations']::before { content: 'gavel'; }

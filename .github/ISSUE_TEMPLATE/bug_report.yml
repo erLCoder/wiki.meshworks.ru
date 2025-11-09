@@ -1,0 +1,29 @@
+name: "🐞 Wiki bug report"
+description: Сообщить об ошибке на существующей странице
+labels: [bug]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: URL страницы
+      placeholder: https://wiki.meshworks.ru/devices/ready-made/portable
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: Что не так
+      description: Опишите проблему (опечатка, битая ссылка, устаревший текст и т.д.)
+    validations:
+      required: true
+  - type: textarea
+    id: proof
+    attributes:
+      label: Дополнительные материалы
+      description: Скриншоты, ссылки на подтверждение, шаги воспроизведения
+  - type: checkboxes
+    id: fix
+    attributes:
+      label: Хотите прислать PR?
+      options:
+        - label: Готов(а) исправить самостоятельно

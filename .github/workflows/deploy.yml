@@ -1,0 +1,77 @@
+name: Deploy wiki
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Git ref to deploy
+        default: main
+        required: true
+
+env:
+  REMOTE_APP_DIR: /opt/compose/external/wiki/app
+  REMOTE_STACK: /opt/compose/stacks/stack-wiki.yml
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build locally (sanity)
+        run: npm run check
+
+      - name: Prepare SSH
+        env:
+          SSH_KEY: ${{ secrets.WIKI_SSH_KEY }}
+          SSH_HOST: ${{ secrets.WIKI_SSH_HOST }}
+          SSH_USER: ${{ secrets.WIKI_SSH_USER }}
+          SSH_PORT: ${{ secrets.WIKI_SSH_PORT || '22' }}
+        run: |
+          if [ -z "$SSH_KEY" ] || [ -z "$SSH_HOST" ] || [ -z "$SSH_USER" ]; then
+            echo "Missing SSH secrets (WIKI_SSH_KEY/HOST/USER)" >&2
+            exit 1
+          fi
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts
+          {
+            echo "Host wiki-prod"
+            echo "  HostName $SSH_HOST"
+            echo "  User $SSH_USER"
+            echo "  Port $SSH_PORT"
+            echo "  IdentityFile ~/.ssh/id_rsa"
+            echo "  StrictHostKeyChecking yes"
+          } >> ~/.ssh/config
+
+      - name: Sync sources to server
+        run: |
+          rsync -az --delete \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude '.docusaurus' \
+            --exclude 'node_modules' \
+            --exclude 'build' \
+            ./ wiki-prod:"$REMOTE_APP_DIR"/
+
+      - name: Build & restart service
+        run: |
+          ssh wiki-prod "cd /opt/compose/external/wiki && sudo ./build_wiki.sh"
+          ssh wiki-prod "cd /opt/compose && sudo ./scripts/bws-compose.sh --compose-args '-f $REMOTE_STACK up -d' wiki"
+
+      - name: Smoke test
+        run: |
+          curl -I --retry 5 --retry-delay 5 "https://wiki.meshworks.ru/?cacheBust=$(date +%s)"
