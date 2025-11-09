@@ -44,7 +44,7 @@ _Last updated: 2025-11-09_
 ├── docs/                # контент (Markdown/MDX)
 ├── static/
 │   ├── img/logo-*.png
-│   └── img/outline/     # скачанные из Outline изображения
+│   └── img/wiki/        # локальные изображения для статей
 ├── src/
 │   ├── css/custom.css   # фирменные цвета/стили
 │   ├── pages/about.md
@@ -54,9 +54,8 @@ _Last updated: 2025-11-09_
 ```
 
 ### Обязательный front matter
-- `slug` — осмысленный путь (`/devices/ready-made/portable`). Не используем GUID из Outline.
+- `slug` — осмысленный путь (`/devices/ready-made/portable`).
 - `sidebar_label`, `sidebar_position`.
-- `outline_url` — ссылка на оригинальную страницу в Outline.
 - Страницы с реферальными ссылками добавляют `:::favorite … :::` сразу после front matter.
 
 ## 5. Брендинг и иконки
@@ -93,23 +92,16 @@ _Last updated: 2025-11-09_
 1. SSH на сервер → `/opt/compose/external/wiki/app`.
 2. Изменить контент:
    - Markdown в `docs/**`.
-   - Картинки в `static/img/outline/` (`![](/img/outline/<slug>.png)`).
+   - Картинки в `static/img/wiki/` (`![](/img/wiki/<slug>.png)`).
    - Конфиги/стили в `docusaurus.config.ts`, `src/css/custom.css`, `src/theme/**`.
 3. Проверить diff (локального git нет, используем `rg`/`diff`).
 4. Запустить `sudo ./build_wiki.sh`.
 5. Проверить `?cacheBust` URL.
 6. Обновить Status Hub и документацию (этот runbook + архитектуру при необходимости).
 
-### Правила миграции из Outline
-- Полное совпадение контента с Outline.
-- ЧПУ-слуги вместо GUID.
-- Локальные копии изображений, никаких внешних ссылок.
-- `favorite` для страниц с партнёрскими ссылками.
-- Сохраняем эмодзи/списки в исходном виде.
-
 ## 8. Пост-чек
 - `curl -I` для ключевых маршрутов (`/`, `/devices`, `/node-setup`, `/troubleshooting`, `/community`, `/about`).
-- MCP Chrome: проверить navbar highlight, footer, admonitions, картинки (`/img/outline`).
+- MCP Chrome: проверить navbar highlight, footer, admonitions, картинки (`/img/wiki`).
 - Убедиться, что поиск индексирует новые страницы.
 
 ## 9. Быстрые команды
@@ -136,13 +128,11 @@ ls -lh /opt/compose/external/wiki/app/build
 2. `npm run serve -- --build …` требует актуального `build/`, не пропускаем `build_wiki.sh`.
 3. Всегда добавляем `?cacheBust=<ts>` при проверке UI.
 4. Ошибка `No admonition component…` — пересобрать и проверить `docs.admonitions.keywords`.
-5. GUID из Outline может измениться — держим `outline_url`.
-6. Не удаляем файлы из `static/img/outline` без `rg -l` — ищем все вхождения.
+5. Не удаляем файлы из `static/img/wiki` без `rg -l` — ищем все вхождения.
 
 ## 11. Бэклог
 - Заполнить `docs/regulations.md`.
 - Добавить lint для ссылок/орфографии в build-скрипт.
-- Написать runbook для экспортера Outline.
 - Перенести `app/` в полноценный git-репозиторий.
 
 ## 12. Переключение wiki.meshworks.ru на Docusaurus

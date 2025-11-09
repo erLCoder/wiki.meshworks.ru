@@ -20,7 +20,7 @@
 4. Перед пушем выполните `npm run check`.
 
 ## 2. Требования к контенту
-- **Front matter**: `title`, `slug`, `sidebar_label`, `sidebar_position`. Дополнительно используем `outline_url`, если есть внешняя статья или видеоматериал.
+- **Front matter**: `title`, `slug`, `sidebar_label`, `sidebar_position`.
 - **Структура**: `docs/<section>/<page>.mdx`. Используйте осмысленные директории (`devices/ready-made/portable.md` и т.д.).
 - **Язык**: русcкий, единый стиль (повествовательный, без жаргона).
 - **MDX**: допускаются React‑компоненты из `src/components/**`, а также стандартные admonitions (`tip`, `info`, `favorite`, ...).

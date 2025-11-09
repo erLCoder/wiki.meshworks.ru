@@ -32,7 +32,6 @@ npm start        # dev-сервер на http://localhost:3000/
 2. Для локальной разработки создайте ветку, выполните `npm ci`, затем `npm start`.
 3. Перед отправкой PR убедитесь, что `npm run check` проходит без ошибок.
 4. Соблюдайте требования к front matter (минимум `title`, `slug`, `sidebar_label`, `sidebar_position`) и храните изображения в `static/img/` (подкаталог по смыслу, например `static/img/wiki/<slug>.png`).
-5. Добавляйте ссылку `outline_url` только если есть исходный материал. Для entirely новых материалов поле можно опустить.
 
 Подробные правила, чеклист и FAQ — в [CONTRIBUTING.md](CONTRIBUTING.md).
 
