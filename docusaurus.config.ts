@@ -95,7 +95,7 @@ const config: Config = {
           to: '/wiki/how-to-edit',
           position: 'left',
           label: 'Контрибьютинг',
-          activeBaseRegex: '^/wiki/(how-to-edit|example).*$',
+          activeBaseRegex: '^/wiki/how-to-edit/?$',
         },
         {
           to: '/about',

@@ -3,12 +3,7 @@ title: О нас
 sidebar_label: ℹ️ О MeshWorks
 sidebar_position: 98
 slug: /about
-custom_edit_url: https://github.com/MeshWorksRussia/wiki.meshworks.ru/edit/main/src/pages/about.md
 ---
-
-:::tip
-Хотите дополнить раздел? Нажмите **Edit this page** вверху страницы или [редактируйте файл напрямую](https://github.com/MeshWorksRussia/wiki.meshworks.ru/edit/main/src/pages/about.md).
-:::
 
 ## MeshWorks
 

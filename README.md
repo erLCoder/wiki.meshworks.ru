@@ -7,7 +7,6 @@ MeshWorks Wiki — публичная база знаний по Meshtastic и �
 - Тематические кастомизации (`src/css/custom.css`, `src/theme/**`) и дополнительные MDX-компоненты.
 - Контент в `docs/**` + статические артефакты в `static/**` (картинки, favicons).
 - Дополнительные советы и FAQ для авторов — страница `/wiki/how-to-edit` (`src/pages/contributing.mdx`).
-- Наглядные примеры оформления — `/wiki/example` (`src/pages/wiki/example.mdx`): от таблиц до admonitions.
 
 ## Быстрый старт
 Требования: Node.js ≥ 20, npm 10.
@@ -29,7 +28,7 @@ npm start        # dev-сервер на http://localhost:3000/
 | `npm run clear`    | удаляет кеш Docusaurus (`.docusaurus/`) |
 
 ## Как контрибьютить
-[CONTRIBUTING.md](CONTRIBUTING.md) и страница https://wiki.meshworks.ru/wiki/how-to-edit описывают полный процесс. Там же найдёте ссылку на демо-страницу https://wiki.meshworks.ru/wiki/example, откуда можно копировать блоки.
+Полный процесс описан в [CONTRIBUTING.md](CONTRIBUTING.md) и на https://wiki.meshworks.ru/wiki/how-to-edit.
 
 ## CI и деплой
 - `.github/workflows/ci.yml` прогоняет `npm run check` на каждом Pull Request и push в `main`.
